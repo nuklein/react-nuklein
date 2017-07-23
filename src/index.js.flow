@@ -1,0 +1,27 @@
+/* @flow */
+/* eslint-disable no-unused-vars */
+import React, { Component } from 'react';
+import type { Schema } from './types/Schema';
+
+declare class Provider extends Component {}
+
+declare function subscribe(
+	schema: ?Schema,
+	modificators: ?Object,
+	before: ?Function,
+	after: ?Function,
+	settings: ?{
+		propsObjectName?: string;
+	}
+) : (MyComponent: ReactClass<*>) => ReactClass<*>;
+
+declare var ReactNuklein: {
+	Provider: Provider;
+	subscribe: subscribe;
+};
+
+module.exports = {
+	default: () => ReactNuklein,
+	Provider,
+	subscribe,
+};
